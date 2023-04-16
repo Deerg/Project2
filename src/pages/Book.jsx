@@ -31,7 +31,6 @@ const Book = () => {
         await axios.patch(`http://localhost:3001/v1/api/posts/${id}`, {
           title, content
         });
-        reload
     }
     useEffect(() => {
         getData();

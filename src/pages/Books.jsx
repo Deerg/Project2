@@ -11,7 +11,7 @@ const Books = () => {
     const [error, setError] = useState(false);
 
     const getData = async () => {
-        const url = 'https://api.matgargano.com/api/books';
+        const url = 'http://localhost:3001/v1/api/posts/';
         setLoading(true);
         setError(false);
         try {

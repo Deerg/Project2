@@ -3,7 +3,7 @@ import Container from './Container';
 const Footer = () => {
 
     return <Container className="bg-gray-300">
-        Coming soon: A Footer!
+        Done by : Shuyi Jiang, Daniel Zhang
     </Container>
 }
 

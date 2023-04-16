@@ -11,21 +11,8 @@ import { useState } from "react";
 import axios from "axios";
 function App() {
 
-    const [data,setData] = useState([]);
-    const get = async() => {
-
-    const req = await axios.get('http://localhost:3001/v1/api/posts');
-     setData(req.data);
-    }
-    const dummy = async() => {
-        await axios.post('http://localhost:3001/v1/api/posts', {title: "dummy",content:"Hi this is test"});
-    }
-
 return <>
     <Header />
-    <button onClick={get}>GET</button>
-    <button onClick={dummy}>create Post</button>
-    <pre>{JSON.stringify(data)}</pre>
     <Container>
         <Routes>
             <Route index element={<Home />}></Route>
