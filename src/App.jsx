@@ -15,7 +15,6 @@ function App() {
     const get = async() => {
 
     const req = await axios.get('http://localhost:3001/v1/api/posts');
-     
      setData(req.data);
     }
     const dummy = async() => {
