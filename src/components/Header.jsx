@@ -11,8 +11,8 @@ const Header = () => {
         <nav className="flex gap-4">
             <RouterLink className={getClassName} to="/">Home</RouterLink>
             <RouterLink className={getClassName} to="/about">About</RouterLink>
-            <RouterLink className={getClassName} to="/books">Books</RouterLink>
-        </nav>
+            <RouterLink className={getClassName} to="/books">Blogs</RouterLink>
+        </nav>  
     </Container>
 }
 
