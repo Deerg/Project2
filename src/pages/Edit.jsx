@@ -3,7 +3,7 @@ import {json, useNavigate, useParams} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-const Book = () => {
+const Edit = () => {
     
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -30,33 +30,21 @@ const Book = () => {
     const submit = async () => {
         await axios.patch(`http://localhost:3001/v1/api/posts/${id}`, {
           title, content
+          
         });
+        navigate(`/books`);
     }
     useEffect(() => {
         getData();
     }, []);
-    const deletePost = async() => {
-        await axios.delete(`http://localhost:3001/v1/api/posts/${id}`);
-        navigate(-1);
-    }
     return (<Container >
-        <Link className='hover:underline' to={`/books`}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-6 h-6">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-        </svg>
-        Click Icon to Return
-        </Link>
-        <div>
-            <Link to={`/books/${id}/edit`}>EDIT</Link>
-            </div>
-        
-            <p class="font-sans-serif italic text-6xl">{books.title}</p>
-            <p class="font-sans-serif italic text-6xl">{books.content}</p>
-            <p>EDIT POST</p>
+<p class="font-sans-serif italic text-6xl">EDIT POST</p>
+
+<p></p>
         <p><input type="text" value={title} onChange={({target: {value}}) => setTitle(value)}></input></p>
         <p><input type="text" value={content} onChange={({target: {value}}) => setContent(value)}></input></p>
         <button onClick={submit}>Submit</button>
-        <button onClick={deletePost}>Delete Post</button>
     </Container>)
 }
 
-export default Book;
+export default Edit

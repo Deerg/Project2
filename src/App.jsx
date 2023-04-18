@@ -7,8 +7,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Books from './pages/Books';
 import Book from "./pages/Book";
-import { useState } from "react";
-import axios from "axios";
+import Edit from "./pages/Edit";
 function App() {
 
 return <>
@@ -19,6 +18,7 @@ return <>
             <Route path="/about" element={<About />}></Route>
             <Route path="/books/:id" element={<Book />}></Route>
             <Route path="/books" element={<Books />}></Route>
+            <Route path="/books/:id/edit" element={<Edit />}></Route>
             <Route path="*" element={<NotFound />}></Route>
         </Routes>
     </Container>
