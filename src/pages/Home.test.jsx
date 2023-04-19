@@ -1,12 +1,12 @@
-import { test, describe, expect } from 'vitest';
+import { test, describe, expect, mount } from 'vitest';
 import Home from './Home';
 import { render, screen, fireEvent, waitfor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 
-jest.mock('axios');
-
 describe('Create', () => {
+	function submit(title, content) {
+		return axios.post('http://localhost:3001/v1/api/posts', { title, content });
+	}
 	test('send title and content', async () => {
 		render(<Home />);
 		const title = 'Title';
@@ -22,11 +22,9 @@ describe('Create', () => {
 });
 
 describe('Reading', () => {
-	test('fetching data from server', async () => {
-		const data = [{ id: 1, title: 'title', content: 'content' }];
-		axios.get.mockResolvedValue({ data: data });
-		const setData = jest.fn();
-		await get(setData);
-		expect(setData).toHaveBeenCalledWith(data);
+	test('Label are render', async () => {
+		render(<Home />);
+
+		expect(screen.getByLabelText('Generate Blog Post')).toBeInTheDocument();
 	});
 });

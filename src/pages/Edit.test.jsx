@@ -1,10 +1,7 @@
 import { test, describe, expect } from 'vitest';
 import Edit from './Edit';
 import { render, screen, fireEvent, waitfor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import axios from 'axios';
-
-jest.mock('axios');
 
 describe('Edit', () => {
 	test('Rendering items', () => {
