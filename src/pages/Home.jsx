@@ -1,7 +1,7 @@
-import Container from '../components/Container';
-import axios from 'axios';
-import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import Container from "../components/Container";
+import axios from "axios";
+import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 const Home = () => {
     const [posts,setPost] = useState([]);
     const [content, setContent]  = useState('');
@@ -12,7 +12,6 @@ const Home = () => {
         });
     }
 
-//<button onClick={deletePost}>Delete Post</button>
     return (<Container>
         <p>Generate Blog Post</p>
         <p><label for="default-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue">Title</label>
@@ -31,5 +30,4 @@ const Home = () => {
             })}
     </Container>)
 }
-
 export default Home;
