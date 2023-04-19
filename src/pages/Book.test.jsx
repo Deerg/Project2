@@ -6,9 +6,6 @@ import axios from "axios";
 
 jest.mock("axios");
 
-describe("Getting Data", () => {
-  test();
-});
 describe("Deleting", () => {
   test("Call the delete and navigate to previous page", async () => {
     const nav = jest.fn();
@@ -17,7 +14,4 @@ describe("Deleting", () => {
     fireEvent.click(deletebutton);
     expect(nav).toHaveBeenCalledWith(-1);
   });
-});
-describe("Create", () => {
-  test();
 });
