@@ -1,20 +1,20 @@
-import { test, describe, expect } from "vitest";
-import Edit from "./Edit";
-import { render, screen, fireEvent, waitfor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import axios from "axios";
+import { test, describe, expect } from 'vitest';
+import Edit from './Edit';
+import { render, screen, fireEvent, waitfor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import axios from 'axios';
 
-jest.mock("axios");
+jest.mock('axios');
 
-describe("Edit", () => {
-  test("Rendering items", () => {
-    render(<Edit />);
-    const title = screen.getByLabelTest("Title");
-    const content = screen.getByLabelTest("Content");
-    const submitbutton = screen.getByRole("button");
+describe('Edit', () => {
+	test('Rendering items', () => {
+		render(<Edit />);
+		const title = screen.getByLabelTest('Title');
+		const content = screen.getByLabelTest('Content');
+		const submitbutton = screen.getByRole('button');
 
-    expect(title).toBeDefined();
-    expect(content).toBeDefined();
-    expect(submitbutton).toBeDefined();
-  });
+		expect(title).toBeDefined();
+		expect(content).toBeDefined();
+		expect(submitbutton).toBeDefined();
+	});
 });
