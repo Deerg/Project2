@@ -3,7 +3,7 @@ import {json, useNavigate, useParams} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-const Book = () => {
+const Blog = () => {
     
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -27,36 +27,33 @@ const Book = () => {
             setLoading(false);
         }
     }
-    const submit = async () => {
-        await axios.patch(`http://localhost:3001/v1/api/posts/${id}`, {
-          title, content
-        });
-    }
+
     useEffect(() => {
         getData();
     }, []);
-    const deletePost = async() => {
-        await axios.delete(`http://localhost:3001/v1/api/posts/${id}`);
-        navigate(-1);
-    }
+
     return (<Container >
-        <Link className='hover:underline' to={`/books`}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-6 h-6">
+        <Link className='hover:underline' to={`/`}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
         </svg>
         Click Icon to Return
         </Link>
         <div>
-            <Link to={`/books/${id}/edit`}>EDIT</Link>
             </div>
-        
-            <p class="font-sans-serif italic text-6xl">{books.title}</p>
-            <p class="font-sans-serif italic text-6xl">{books.content}</p>
-            <p>EDIT POST</p>
-        <p><input type="text" value={title} onChange={({target: {value}}) => setTitle(value)}></input></p>
-        <p><input type="text" value={content} onChange={({target: {value}}) => setContent(value)}></input></p>
-        <button onClick={submit}>Submit</button>
-        <button onClick={deletePost}>Delete Post</button>
+            <label class="font-sans-serif text-3xl"> Title: 
+                    </label>
+            <p class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                {books.title}</p>
+                <label class="font-sans-serif text-3xl"> Blog Content: 
+                    </label>
+            <p class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{books.content}</p>
+            <div>
+                Last Edited : {Date(books.last_updated)}
+            </div>
+            <div class ="text-3xl">
+                <Link className='hover:underline' to={`/blogs/${id}/edit`}>EDIT</Link>
+            </div>
     </Container>)
 }
 
-export default Book;
+export default Blog;

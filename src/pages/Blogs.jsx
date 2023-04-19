@@ -4,7 +4,7 @@ import ErrorAlert from '../components/ErrorAlert';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-const Books = () => {
+const Blogs = () => {
 
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -25,7 +25,6 @@ const Books = () => {
             setLoading(false);
         }
     }
-
     useEffect(() => {
         getData();
     }, []);
@@ -38,14 +37,12 @@ const Books = () => {
             <>
             {books.map(book => {
                 return <div key={book.id}>
-                    <Link className='hover:underline' to={`/books/${book.id}`}>{book.title}</Link>
+                    <Link className='hover:underline' to={`/Blogs/${book.id}`}>{book.title}</Link>
                 </div>
             })}
             </>
         }
-
-    
     </>
 }
 
-export default Books;
+export default Blogs;
