@@ -1,15 +1,18 @@
 import Container from "../components/Container";
 import axios from "axios";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 const Home = () => {
     const [posts,setPost] = useState([]);
     const [content, setContent]  = useState('');
     const [title, setTitle] = useState('');
+    const navigate = useNavigate();
     const submit = async () => {
         await axios.post('http://localhost:3001/v1/api/posts', {
           title, content
         });
+        navigate('/');
     }
 
     return (<Container>
