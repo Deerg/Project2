@@ -31,7 +31,10 @@ const Blog = () => {
     useEffect(() => {
         getData();
     }, []);
-
+    const deletePost= async() => {
+        await axios.delete(`http://localhost:3001/v1/api/posts/${id}`);
+        navigate('/');
+    }
     return (<Container >
         <Link className='hover:underline' to={`/`}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
@@ -53,6 +56,7 @@ const Blog = () => {
             <div class ="text-3xl">
                 <Link className='hover:underline' to={`/blogs/${id}/edit`}>EDIT</Link>
             </div>
+            <button class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={deletePost}>Delete</button>
     </Container>)
 }
 
