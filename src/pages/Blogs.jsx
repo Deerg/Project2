@@ -35,6 +35,7 @@ const Blogs = () => {
         {!error && loading && <div className="max-w-[230px]"><Skeleton count="10" /></div>}
         {!error && !loading && 
             <>
+            <p className='italic'>List of Blog Post:</p>
             {books.map(book => {
                 return <div key={book.id}>
                     <Link className='hover:underline' to={`/Blogs/${book.id}`}>{book.title}</Link>
